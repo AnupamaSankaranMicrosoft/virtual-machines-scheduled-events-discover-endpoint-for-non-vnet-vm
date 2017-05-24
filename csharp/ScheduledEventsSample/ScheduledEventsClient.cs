@@ -35,7 +35,7 @@ namespace ScheduledEventsSample
         /// 
         /// </summary>
         /// <returns>The Scheduled Events document json as a string</returns>
-        public string GetDocument()
+        public string GetScheduledEvents()
         {
             using (var webClient = new WebClient())
             {
@@ -51,7 +51,7 @@ namespace ScheduledEventsSample
         /// Please see here: "https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events" 
         /// </summary>
         /// <param name="jsonPost">Json string with events to be approved</param>
-        public void PostResponse(string jsonPost)
+        public void ExpediteScheduledEvents(string jsonPost)
         {
             using (var webClient = new WebClient())
             {

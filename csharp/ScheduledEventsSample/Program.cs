@@ -37,7 +37,7 @@ namespace ScheduledEventsSample
                 Console.WriteLine("Getting the Scheduled Events Document...\n");
 
                 // Get the events json string
-                string json = client.GetDocument();
+                string json = client.GetScheduledEvents();
                 Console.WriteLine($"Scheduled Events Document: {json}\n");
 
                 // Deserialize using Newtonsoft.Json
@@ -56,9 +56,9 @@ namespace ScheduledEventsSample
                     DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
                 };
 
-                foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
+                foreach (CloudControlEvent e in scheduledEventsDocument.Events)
                 {
-                    scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));
+                    scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(e.EventId));
                 }
 
                 if (scheduledEventsApprovalDocument.StartRequests.Count > 0)
@@ -68,7 +68,7 @@ namespace ScheduledEventsSample
                         JsonConvert.SerializeObject(scheduledEventsApprovalDocument);
 
                     Console.WriteLine($"Approving events with json: {approveEventsJsonDocument}\n");
-                    client.PostResponse(approveEventsJsonDocument);
+                    client.ExpediteScheduledEvents(approveEventsJsonDocument);
                 }
 
                 Console.WriteLine("Complete. Press enter to repeat\n\n");
