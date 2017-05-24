@@ -56,10 +56,10 @@ function HandleScheduledEvents($scheduledEvents)
 
 ######### Sample Scheduled Events Interaction #########
 
-# Configure the scheduled events Url for the VM
+# Configure the scheduled events URI for the VM
 if($isVnet)
 {
-    # Use common scheduled events uri for VNET enabled VM
+    # Use common scheduled events URI for VNET-enabled VMs
     $scheduledEventsUrl = 'http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01'
 }
 else
@@ -68,7 +68,7 @@ else
     $scheduledEventsUrl = GetScheduledEventsURLForNonVnet 
 }
 
-# Get the document
+# Get the events
 $scheduledEvents = GetScheduledEvents $scheduledEventsUrl
 
 # Handle events however is best for your service
