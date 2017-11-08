@@ -59,7 +59,7 @@ namespace ScheduledEventsEndpointDiscovery
                 }
                 catch (DhcpRequestFailedException e)
                 {
-                    
+
                 }
             }
 
@@ -120,7 +120,7 @@ namespace ScheduledEventsEndpointDiscovery
 
             thread.Start();
 
-            // wait no more than 3 minutes, to compensate for win7 bug 699003 (timezone issue 
+            // wait no more than 3 minutes, to compensate for win7 bug 699003 (timezone issue
             // causing DHCP service to malfunction, leading to infinite blocking of DHCP API calls)
             if (thread.Join(TimeSpan.FromMinutes(3)) == false)
             {
