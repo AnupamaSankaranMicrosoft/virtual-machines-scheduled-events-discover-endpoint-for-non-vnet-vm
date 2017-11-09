@@ -22,7 +22,7 @@ param([bool]$isVnet = $true)
 
 
 # How to get scheduled events 
-function GetScheduledEvents($uri)
+function Get-ScheduledEvents($uri)
 {
     $scheduledEvents = Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $uri -Method get
     $json = ConvertTo-Json $scheduledEvents
@@ -32,7 +32,7 @@ function GetScheduledEvents($uri)
 
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
+function Approve-ScheduledEvent($eventId, $docIncarnation, $uri)
 {    
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
@@ -49,7 +49,7 @@ function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 
 
 # Add logic relevant to your service here
-function HandleScheduledEvents($scheduledEvents)
+function Handle-ScheduledEvents($scheduledEvents)
 {
 
 }
@@ -69,10 +69,10 @@ else
 }
 
 # Get the events
-$scheduledEvents = GetScheduledEvents $scheduledEventsUrl
+$scheduledEvents = Get-ScheduledEvents $scheduledEventsUrl
 
 # Handle events however is best for your service
-HandleScheduledEvents $scheduledEvents
+Handle-ScheduledEvents $scheduledEvents
 
 # Approve events when ready (optional)
 foreach($event in $scheduledEvents.Events)
@@ -81,6 +81,6 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-        ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventsUrl 
+        Approve-ScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventsUrl 
     }
 }
