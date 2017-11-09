@@ -22,7 +22,7 @@ namespace ScheduledEventsEndpointDiscovery
     public static class ScheduledEventsUtility
     {
         public static readonly int InstanceMetadataServicePort = 8080;
-        private static readonly string InstanceMetadataServiceEndpointPath = "/metadata/latest/scheduledevents";
+        private static readonly string InstanceMetadataServiceEndpointPath = "/metadata/scheduledEvents?api-version=2017-08-01";
         private const uint ControlSystemDhcpOptionID = 245;
 
         /// <summary>
