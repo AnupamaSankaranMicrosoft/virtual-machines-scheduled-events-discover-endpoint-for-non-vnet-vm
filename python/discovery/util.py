@@ -66,16 +66,16 @@ def get_ip_address_reg_env(use_registry):
     ip_address = None
     if use_registry and sys.platform == 'win32':
         import winreg as wreg
-        # use CloudControlIp in registry if available.
+        # use ScheduledEventsIp in registry if available.
         try:
-            key = wreg.OpenKey(wreg.HKEY_LOCAL_MACHINE, "Software\\CloudControl")
-            ip_address = wreg.QueryValueEx(key, 'CloudControlIp')[0]
+            key = wreg.OpenKey(wreg.HKEY_LOCAL_MACHINE, "Software\\ScheduledEvents")
+            ip_address = wreg.QueryValueEx(key, 'ScheduledEventsIp')[0]
             key.Close()
         except FileNotFoundError:
             pass
     elif sys.platform == 'win32' or "linux" in sys.platform:
-        # use CLOUDCONTROLIP in system variables if available.
-        ip_address = os.getenv('CLOUDCONTROLIP')
+        # use SCHEDULEDEVENTSIP in system variables if available.
+        ip_address = os.getenv('SCHEDULEDEVENTSIP')
 
     return ip_address
 
