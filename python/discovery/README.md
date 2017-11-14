@@ -1,3 +1,4 @@
+
 How does endpoint discovery work?
 ===
 The mechanism to discover the Scheduled Events Service IP address is to send a DHCP request. In the centralized DHCP service, the response is customized 
@@ -23,10 +24,11 @@ optional switches.
 Discovering the endpoint
 ===
 By default, upon discovering the Scheduled Events Service IP address, the script adds it to the environment variables. The variable name in both Windows and 
-Linux is “SCHEDULEDEVENTSIP”. However, the script has two additional modes of operation – “--debug” and “--donotaddtoenv” as listed below.
+Linux is “SCHEDULEDEVENTSIP”. However, the script has a few additional optional arguments as listed below.
 
 --debug: Enables running the script in debug mode wherein more logging is available for debugging purposes
---donotaddtoenv: Enables not adding the Scheduled Events IP as part of the environment variable
+--donotaddtoenv: Provides the option of not adding the Scheduled Events IP as part of the environment variable
+--outputregistry: Provides the option to store scheduled events IP as a registry value
 
 * python discovery.py -h
 usage: discovery.py [-h] [--debug] [--donotaddtoenv]
@@ -36,6 +38,7 @@ optional arguments:
   --debug          Enable running the script in debug mode
   --donotaddtoenv  Do not add the scheduled events endpoint to environment
                    Variable
+  --outputregistry Store scheduled events IP address as registry value                 
 
 
 ## Example 1: Output to environment variable
