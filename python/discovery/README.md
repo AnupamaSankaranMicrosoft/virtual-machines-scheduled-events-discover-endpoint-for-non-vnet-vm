@@ -60,10 +60,10 @@ scheduled events endpoint IP address: 168.63.129.16
 Adding scheduled events endpoint IP to the environment
 
 SUCCESS: Specified value was saved.
-Adding scheduled events endpoint to registry location HKEY_LOCAL_MACHINE\Software\Wow6432Node\ScheduledEvents
+Adding scheduled events endpoint to registry location HKEY_LOCAL_MACHINE\Software\ScheduledEvents
 ('168.63.129.16', 1)
 ```
-* For windows VMs, this will set the host IP address for scheduled events in the registry at HKEY_LOCAL_MACHINE\Software\Wow6432Node\ScheduledEvents
+* For windows VMs, this will set the host IP address for scheduled events in the registry at HKEY_LOCAL_MACHINE\Software\ScheduledEvents
 
 <br>
 
