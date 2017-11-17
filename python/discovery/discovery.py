@@ -29,7 +29,8 @@ import array
 import time
 import util
 import sys
-import _winreg as wreg
+if sys.platform == 'win32':
+    import _winreg as wreg
 from uuid import getnode as get_mac
 
 """
