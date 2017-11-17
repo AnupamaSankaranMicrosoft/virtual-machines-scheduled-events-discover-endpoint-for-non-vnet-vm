@@ -30,7 +30,7 @@ import time
 import util
 import sys
 if sys.platform == 'win32':
-    import _winreg as wreg
+    import winreg as wreg
 from uuid import getnode as get_mac
 
 """
